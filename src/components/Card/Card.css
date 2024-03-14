@@ -4,3 +4,7 @@
     font-family: "Space Mono", monospace;
 
 }
+
+.ingredients_area{
+    cursor: url(../../assets/images/pizza_cursor.png), pointer;
+}

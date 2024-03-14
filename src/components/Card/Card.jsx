@@ -2,10 +2,35 @@ import React from 'react'
 import TEST from "../../assets/images/pizza-Vesuvius.png"
 import { useEffect,useState } from 'react'
 import "../Card/Card.css"
+import { useDispatch, useSelector } from 'react-redux';
+import CURSORPIZZA from "../../assets/images/pizza_cursor.png"
+import { Link } from 'react-router-dom';
+import {addPizza} from '../reducers/pizzaListSlice'
 
-export default function Card() {
 
+export default function Card({ id }) {
+
+    const dispatch = useDispatch();
+    const pi = useSelector((state) => state.resto.restaurantPizzas)
+    // console.log(pi);
+    // pi.map((el) => {
+
+    //     console.log(el.id);
+    // })
+    // console.log(id);
+    const pizza = useSelector((state) =>
+    state.resto.restaurantPizzas.find(pizza => pizza.id == id)  
+    );
+    // console.log(pizza.name);
     const [isCardHovered, setIsCardHovered] = useState(false);
+    // console.log(pizza.image);
+
+    const srcPizza = new URL(`${pizza.image}`, import.meta.url).href;
+    // console.log(srcPizza);
+
+
+
+
     
   return (
 
@@ -14,7 +39,6 @@ export default function Card() {
                         h-[30rem] w-[25rem] 
 
         `}
-        
         onMouseEnter={() => setIsCardHovered(true)}
         onMouseLeave={() => setIsCardHovered(false)}
 
@@ -23,57 +47,72 @@ export default function Card() {
 
             {/* image area start */}
 
-            <div className={`image_area absolute w-[30rem] h-[40rem]  left-[8.75rem] 
-
-                    
-                                
-            `}
-            
-            style={{ top: isCardHovered ? "-20rem" : "-4.5rem" }}
-            >
-                <img src={TEST} alt="" srcset="" className='w-full h-full' />
-            </div>
 
             {/* image area end */}
 
                 {/* ingredients area start  */}
 
-            <div className={`ingredients_area italic text-white font-medium justify-center
-                            w-[85%] h-[60%]  m-auto flex-col flex
-            `}
+            
+
+            <Link 
+                                    // to={`/flags-api-project/detail/${originalIndex}`}
+
+                to={`/pizza-redux/detail/${pizza.name}`}
+                className={`ingredients_area italic text-white font-medium justify-center 
+                            w-[85%] h-[40%]  m-auto  bg-white rounded-3xl flex  
+                            
+                `}
+            
             >
 
-            <h4 className='mt-6'>Ingrédients : </h4>
-            <p className='ml-6 text-[rgb(66,194,224)] not-italic'>test</p>
-            <p className='ml-6 text-[rgb(66,194,224)] not-italic'>test</p>
-            <p className='ml-6 text-[rgb(66,194,224)] not-italic'>test</p>
-            <p className='ml-6 text-[rgb(66,194,224)] not-italic'>test</p>
-            <p className='ml-6 text-[rgb(66,194,224)] not-italic'>test</p>
-            <p className='ml-6 text-[rgb(66,194,224)] not-italic'>test</p>
-            <p className='ml-6 text-[rgb(66,194,224)] not-italic'>test</p>
-            <p className='ml-6 text-[rgb(66,194,224)] not-italic'>test</p>
-            </div>
+                <img 
+                src={srcPizza} 
+                alt="" 
+                srcset="" className={` `}/>
+
+            </Link>
                 {/* ingredients area end  */}
+
+
 
                 {/* name and price area end  */}
 
+
+            <div className={`description_area flex text-[rgb(66,194,224)]
+                            w-[85%] h-[16%]   mx-auto justify-between 
+            `}
+           
+    
+            >
+                    <p>
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, temporibus.
+                    </p>
+
+            </div>
             <div className={`name_price_area flex
                             w-[85%] h-[10%]   m-auto justify-between
             `}
+           
+    
             >
 
-                <div className={`name_pizza w-[60%] h-[80%]    flex items-center  my-auto
+                <div className={`name_pizza w-[69%] h-[65%]    flex items-center  my-auto
                 
                 `}>
 
                 <h3 className='text-[rgb(246,85,101)] text-[1.3rem] italic'
-                > Versivius</h3>
+                >
+                     {pizza.name}
+                </h3>
 
                 </div>
-                <div className={`price_pizza w-[16%] h-[80%]  my-auto text-end flex
+                <div className={`price_pizza w-[24%] h-[80%]  my-auto text-end flex 
                 
                 `}>
-                    <span className='self-end text-[rgb(118,206,132)] font-medium text-[1.3rem] '> 3 €</span>
+                    <span className='self-end text-[rgb(118,206,132)] m-auto font-medium text-[1.1rem] '> 
+                    {pizza.price}€
+                    </span>
 
                 </div>
 
@@ -85,6 +124,7 @@ export default function Card() {
             <button type='button' className={`name_price_area flex rounded-3xl btn   
                             w-[65%] h-[10%]  bg-[#eaeaea] m-auto 
             `}
+            onClick={() => dispatch(addPizza(pizza))}
             >
                     ADD TO BAG
             </button>

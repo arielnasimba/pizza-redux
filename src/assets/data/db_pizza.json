@@ -1,0 +1,145 @@
+[
+    {
+      "id": 1,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Vesuvius.png",
+      "name": "Vesuvius",
+      "topping": [
+        "tomate",
+        "mozzarella",
+        "poulet",
+        "ananas", 
+        "poivron vert", 
+        "olives", 
+        "pepperoni", 
+        "crême fraîche" 
+      ],
+      "price": 11.95,
+      "rank": 3
+    },
+    {
+      "id": 2,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Hawaii.png",
+      "name": "Hawaii",
+      "topping": [
+        "tomate",
+        "mozzarella",
+        "poulet",
+        "ananas"
+      ],
+      "price": 11.95,
+      "rank": 1
+    },
+    {
+      "id": 3,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Printaniere.png",
+      "name": "Printaniere",
+      "topping": [
+        "tomate",
+        "mozzarella",
+        "champignons",
+        "oignons",
+        "poivrons",
+        "crême fraîche"
+      ],
+      "price": 11.95,
+      "rank": 2
+    },
+    {
+      "id": 4,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Reggina.png",
+      "name": "Reggina",
+      "topping": [
+        "crême",
+        "mozzarella",
+        "jambon",
+        "champignons",
+        "origan"
+    ],
+      "price": 11.95,
+      "rank": 2
+    },
+    {
+      "id": 5,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Royal-Mix.png",
+      "name": "Royal Mix",
+      "topping": [
+        "crême",
+        "tomate",
+        "mozzarella",
+        "jambon",
+        "champignons",
+        "origan",
+        "pepperoni",
+        "ail"
+      ],
+      "price": 16.95,
+      "rank": 2
+    },
+    {
+      "id": 6,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Pepperoni-Spicy.png",
+      "name": "Pepperoni Spicy",
+      "topping": [
+        "crême",
+        "mozzarella",
+        "pepperoni",
+        "piment rouge"
+      ],
+      "price": 11.95,
+      "rank": 2
+    },
+    {
+      "id": 7,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Margherita-Tomate.png",
+      "name": "Margherita Tomate",
+      "topping": [
+        "sauce tomate",
+        "mozzarella",
+        "emmental",
+        "tomate"
+      ],
+      "price": 9.5,
+      "rank": 2
+    },
+    {
+      "id": 8,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Automniere.png",
+      "name": "Automnière",
+      "topping": [
+        "tomate",
+        "mozzarella",
+        "poulet",
+        "champignons",
+        "poivrons",
+        "crême fraîche"
+      ],
+      "price": 10.95,
+      "rank": 2
+    },
+    {
+      "id": 9,
+      "category": "Pizza",
+      "image": "../../assets/images/pizza-Carnivore.png",
+      "name": "Carnivore",
+      "topping": [
+        "Sauce tomate", 
+        "mozzarella",
+        "comté",
+        "pepperoni",
+        "bœuf haché",
+        "merguez"
+    ],
+      "price": 12.95,
+      "rank": 2
+    }
+
+  ]
+

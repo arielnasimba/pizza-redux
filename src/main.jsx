@@ -1,27 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 
+import {store}  from './App/Store.js'
+import { Provider } from "react-redux"
+
+import Home from './components/Home/Home.jsx';
+import Resto from './components/Resto.jsx';
+import Detail from './components/Detail/Detail.jsx';
+
 const router = createBrowserRouter([
 
 
   {
-    path: "/flags-api-project",
-    element: <App />,
+    path: "/pizza-redux",
+    element: <Home /> ,
   },
+  // {
+  //   element: <Resto />,
+  // },
   {
-    path: "/flags-api-project/detail/:id",
+    path: "/pizza-redux/detail/:id",
     element: <Detail />,
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </React.StrictMode>
+);
+
