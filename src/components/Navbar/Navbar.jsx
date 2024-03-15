@@ -14,14 +14,38 @@ export default function Navbar() {
   pizzaList.map((prices) => {total+= prices.price});
 // console.log(total);
 
-// console.log(pizzaList.slice(-2));
+console.table(pizzaList);
+
+const allBag = useSelector((state) =>state.pizza.cart)
+  console.table(allBag);
 
 
-  // console.log(pizzaList);
+const qty_last_pizza = (lastName, arr) => {
+  arr.find(({name}) => name == lastName)
+};
+
+// let lastPizza = qty_last_pizza(pizzaList[pizzaList.length-1].name, pizzaList);
+// console.log(lastPizza);
+
+// const lastPizza = pizzaList.find(({name}) => name == pizzaList[pizzaList.length-1].name);
+// console.table(lastPizza)
+// const beforeLastPizza = pizzaList.find(({name}) => name == pizzaList[pizzaList.length-2].name);
+// console.table(beforeLastPizza);
+
+// const found = array1.find((element) => element > 10);
 
   const [isBagHovered, setIsBagHovered] = useState(false);
 // console.log(document.querySelector('.navbar').querySelector(".bag_pizza"));
 
+const inventory = [
+  { name: "apples", quantity: 2 },
+  { name: "bananas", quantity: 0 },
+  { name: "cherries", quantity: 5 },
+];
+
+const result = inventory.find(({ name }) => name === "cherries");
+
+console.log(result); // { name: 'cherries', quantity: 5 }
 
   useEffect(() => {
     
@@ -183,18 +207,14 @@ export default function Navbar() {
                       {element.name}
                     </p>
                     <p className="text-[0.8rem] text-black">
-                      {element.price}€ {`x`}
+                      {element.price}€ {``}
                     </p>
                   </div>
     
                   <div className="right w-[25%]  h-full rounded-r-lg flex flex-col justify-center items-center ">
                     {/* quantity content */}
     
-                    <p className="text-[0.7rem]  flex text-black">
-                      QTY : <p className=""> 
-                      {/* &nbsp;{qty} */}
-                      </p>
-                    </p>
+
     
                     <button
                       type="button "

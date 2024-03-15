@@ -5,6 +5,7 @@
       "image": "../../assets/images/pizza-Vesuvius.png",
       "base": "creme",
       "name": "Vesuvius",
+      "description": "tomate mozzarella poulet ananas poivron vert olives pepperoni crême fraîche", 
       "topping": [
         "tomate",
         "mozzarella",
@@ -24,6 +25,7 @@
       "image": "../../assets/images/pizza-Hawaii.png",
       "base": "tomate",
       "name": "Hawaii",
+      "description": "La douceur de l'ananas accompagnée de jambon, champignons, mozzarella et sauce tomate",
       "topping": [
         "tomate",
         "mozzarella",
@@ -39,6 +41,7 @@
       "image": "../../assets/images/pizza-Printaniere.png",
       "base": "creme",
       "name": "Printaniere",
+      "description":" tomate mozzarella champignons oignons poivrons crême fraiche",
       "topping": [
         "tomate",
         "mozzarella",
@@ -56,6 +59,7 @@
       "image": "../../assets/images/pizza-Reggina.png",
       "base": "creme",
       "name": "Reggina",
+      "description": "crême mozzarella jambon champignons origan",
       "topping": [
         "crême",
         "mozzarella",
@@ -72,6 +76,7 @@
       "image": "../../assets/images/pizza-Royal-Mix.png",
       "base": "tomate",
       "name": "Royal Mix",
+      "description":"crême tomate mozzarella jambon champignons origan pepperoni ail" ,
       "topping": [
         "crême",
         "tomate",
@@ -91,6 +96,7 @@
       "image": "../../assets/images/pizza-Pepperoni-Spicy.png",
       "base": "tomate",
       "name": "Pepperoni Spicy",
+      "description":"La pizza de base, avec une sauce tomate et de la mozzarella avec un salami piquant de qualité",
       "topping": [
         "crême",
         "mozzarella",
@@ -105,6 +111,7 @@
       "category": "Pizza",
       "image": "../../assets/images/pizza-Margherita-Tomate.png",
       "base": "tomate",
+      "description": "L'originale pizza de base, avec une sauce tomate et de la mozzarella",
       "name": "Margherita Tomate",
       "topping": [
         "sauce tomate",
@@ -121,6 +128,7 @@
       "image": "../../assets/images/pizza-Automniere.png",
       "base": "creme",
       "name": "Automnière",
+      "description":"tomate mozzarella poulet champignons poivrons crême fraîche",
       "topping": [
         "tomate",
         "mozzarella",
@@ -138,6 +146,7 @@
       "image": "../../assets/images/pizza-Carnivore.png",
       "base": "tomate",
       "name": "Carnivore",
+      "description":"Une base de sauce tomate, mozzarella, pepperoni, bœuf haché, merguez douce ",
       "topping": [
         "Sauce tomate", 
         "mozzarella",

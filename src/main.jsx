@@ -13,6 +13,7 @@ import Home from './components/Home/Home.jsx';
 import Resto from './components/Resto.jsx';
 import Detail from './components/Detail/Detail.jsx';
 import BagPage from './components/BagPage/BagPage.jsx';
+import CardSelfPage from './components/CardSelfPage/CardSelfPage.jsx';
 
 const router = createBrowserRouter([
 
@@ -27,9 +28,14 @@ const router = createBrowserRouter([
     element: <Detail />,
   },
   {
+    path: "/pizza-redux/detail/self-made-pizza",
+    element: <CardSelfPage />,
+  },
+  {
     path: "/pizza-redux/cart/",
     element: <BagPage />,
   },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

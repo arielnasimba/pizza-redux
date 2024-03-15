@@ -1,10 +1,23 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
-import ARROW from "../../assets/images/arrow-left.png"
-import "../BagPage/BagPage.css"
+import ARROW from "../../assets/images/arrow-left.png";
+import BAGPAGE from "../../assets/images/pizza-bagPage.jpg";
+import SMPIZZA from "../../assets/images/pizza_cursor.png";
+import DELETE from "../../assets/images/delete-item.png";
+import "../BagPage/BagPage.css";
+import { useSelector, useDispatch } from "react-redux";
+import {addPizza, addToCart, deletePizza, updateCartQty} from '../reducers/pizzaListSlice'
+
 
 export default function BagPage() {
+  const pizzaList = useSelector((state) => state.pizza.pizzas);
+  console.log(pizzaList);
+
+  const pizzaCart = useSelector((state) => state.pizza.cart);
+  let total = 0;
+  pizzaList.map((prices) => {total+= prices.price});
+console.table(pizzaCart);
   return (
     <>
       <body
@@ -24,7 +37,6 @@ min-[1440px]: min-[1440px]:self-center
 
 
 `}
-
         >
           <div
             className={`back_btn_area 
@@ -97,10 +109,10 @@ min-[1440px]:w-[50%] min-[1440px]:h-full
 `}
             >
               <img
-                src={``}
+                src={BAGPAGE}
                 alt=""
                 srcset=""
-                className={`rounded-3xl  self-center`}
+                className={`rounded-3xl  flex`}
               />
             </div>
             <div
@@ -126,11 +138,14 @@ min-[1440px]:items-center
 `}
               >
                 <div
-                  className={`title_area text-center
+                  className={`title_area text-center flex items-center gap-7 
 
-  min-[1440px]: min-[1440px]:h-[16%]
+  min-[1440px]: min-[1440px]:min-h-[16%]
 `}
                 >
+                  <span>
+                    <img src={SMPIZZA} alt="" srcset="" className="flex " />
+                  </span>
                   <h3
                     className={`
 
@@ -140,32 +155,102 @@ min-[1440px]:font-[800]
 `}
                   >
                     {/* {pizzaId.name} */}
+                    MERCI POUR VOTRE COMMANDE
                   </h3>
+                  <span>
+                    <img src={SMPIZZA} alt="" srcset="" className="flex " />
+                  </span>
                 </div>
                 <div
-                  className={`desc_area  flex flex-col m-auto 
+                  className={`desc_area  flex flex-col  ml-[3rem] 
 
-  min-[1440px]:w-[50%] min-[1440px]:h-[70%]
- 
+  min-[1440px]: w-[65%] min-h-[10dvh] overflow-y-hidden
 
                     `}
                 >
-                  <h4>COMMANDE :</h4>
-{/* 
+                  <div className="top w-[30%] min-h-[10%] ">
+                  <h4
+                    className="m-auto
+                  "
+                  >
+                    TOTAL :
+                  </h4>
+
+
+                  </div>
+
+                  <div className="bot w-full min-h-[35rem] flex flex-col overflow-y-scroll gap-2 ">
+
+                  {pizzaCart.map((element) => {
+                    const srcPizz = new URL(`${element.image}`, import.meta.url)
+                      .href;
+
+                    return (
+                      <div className="SideBarItem w-full h-[5rem] bg-white flex rounded-xl">
+                        <div className="left w-[25%]  h-full rounded-l-lg flex ">
+                          {/* image content */}
+
+                          <img
+                            src={srcPizz}
+                            alt=""
+                            srcset=""
+                            className="m-auto"
+                          />
+                        </div>
+
+                        <div className="middle w-[50%]  h-full flex flex-col justify-center items-center">
+                          {/* text content */}
+
+                          <p className="text-[0.8rem] text-black">
+                            {element.name}
+                          </p>
+                          <p className="text-[0.8rem] text-black">
+                            {element.price}€ 
+                            <span className="not-italic"> x</span>
+                            {`  ${element.qty}`}
+                          </p>
+                        </div>
+
+                        <div className="right w-[25%]  h-full rounded-r-lg flex flex-col justify-center items-center ">
+                          {/* quantity content */}
+
+
+
+                          <button type="button " className="btn w-[50%] bg-red rounded-2xl" 
+                          
+                          // onClick={() => {dispatch(deletePizza(element.id))}}
+                          onClick={() => dispatch(deletePizza(element.id))}
+                          >
+                              <img src={DELETE} alt="" srcset="" />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+
+
+                  </div>
+                  {/* 
                   {pizzaId.topping.map((el) => {
                     return <p className="pl-[7.5rem] not-italic "> {el} </p>;
                   })} */}
+ 
                 </div>
+                <div className="price_area w-[40%] h-[15%] ml-[10rem]  ">
+                  <h3 className="text-[1.2rem] mx-auto"> PRIX TOTAL: 
+                    {total.toFixed(2)}€
+                  </h3>
+                 </div>
                 <div
-                  className={`near_countries_area   
+                  className={`near_countries_area    
 
-  min-[1440px]:w-full min-[1440px]:h-[16%]  min-[1440px]:flex
+  min-[1440px]:w-full min-[1440px]:min-h-[16%]  min-[1440px]:flex
 `}
                 >
                   <button
                     type="button"
-                    onClick={() => dispatch(addPizza(pizzaId))}
-                    className="btn h-[80%] w-[35%] rounded-3xl m-auto bg-[#737373] text-white hover:text-black"
+                    // onClick={() =)}
+                    className="btn h-[80%] w-[35%] rounded-3xl ml-[8rem] self-end bg-[#737373] text-white hover:text-black"
                   >
                     CONFIRMER PANIER
                   </button>

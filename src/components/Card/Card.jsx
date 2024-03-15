@@ -4,34 +4,25 @@ import { useEffect,useState } from 'react'
 import "../Card/Card.css"
 import { useDispatch, useSelector } from 'react-redux';
 import CURSORPIZZA from "../../assets/images/pizza_cursor.png"
+import BGCARD from "../../assets/images/vegetables.jpg"
 import { Link } from 'react-router-dom';
-import {addPizza} from '../reducers/pizzaListSlice'
+import {addPizza, addToCart, updateCartQty} from '../reducers/pizzaListSlice'
 
 
 export default function Card({ id }) {
-
     const dispatch = useDispatch();
-    const pi = useSelector((state) => state.resto.restaurantPizzas)
-    // console.log(pi);
-    // pi.map((el) => {
-
-    //     console.log(el.id);
-    // })
-    // console.log(id);
-    const pizza = useSelector((state) =>
-    state.resto.restaurantPizzas.find(pizza => pizza.id == id)  
-    );
-    // console.log(pizza.name);
+    const pi = useSelector( (state) => state.resto.restaurantPizzas)
+    const pizza = useSelector( (state) => state.resto.restaurantPizzas.find(pizza => pizza.id == id) );
     const [isCardHovered, setIsCardHovered] = useState(false);
-    // console.log(pizza.image);
-
     const srcPizza = new URL(`${pizza.image}`, import.meta.url).href;
-    // console.log(srcPizza);
-
-
-
-
     
+    // console.log(pizza);
+    // let qty = 0;
+    const handleAddToCart = () => {
+        dispatch(addToCart({ pizzaId: pizza.id, qty: 1 }));
+      };
+      
+
   return (
 
     <>
@@ -59,21 +50,20 @@ export default function Card({ id }) {
 
                 to={`/pizza-redux/detail/${pizza.name}`}
                 className={`ingredients_area italic text-white font-medium justify-center 
-                            w-[85%] h-[40%]  m-auto  bg-white rounded-3xl flex  
+                            w-[85%] h-[40%]  m-auto  bg-white rounded-3xl flex    bg-cover
                             
                 `}
+                style={{backgroundImage: `url(${BGCARD})`}}
             
             >
 
                 <img 
                 src={srcPizza} 
                 alt="" 
-                srcset="" className={` `}/>
+                srcset="" className={`w-[65%] h-[65%] m-auto`}/>
 
             </Link>
                 {/* ingredients area end  */}
-
-
 
                 {/* name and price area end  */}
 
@@ -82,11 +72,10 @@ export default function Card({ id }) {
                             w-[85%] h-[16%]   mx-auto justify-between 
             `}
            
-    
             >
                     <p>
 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, temporibus.
+                        {pizza.description}
                     </p>
 
             </div>
@@ -124,7 +113,7 @@ export default function Card({ id }) {
             <button type='button' className={`name_price_area flex rounded-3xl btn   
                             w-[65%] h-[10%]  bg-[#eaeaea] m-auto 
             `}
-            onClick={() => dispatch(addPizza(pizza))}
+            onClick={() => {dispatch(addPizza(pizza)), handleAddToCart()}}
             >
                     ADD TO BAG
             </button>

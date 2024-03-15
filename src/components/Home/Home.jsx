@@ -9,6 +9,7 @@ import DATA from "../../assets/data/db_pizza.json"
 import {addPizzas} from "../reducers/restaurantPizza"
 import {addPizzas2} from "../reducers/resto2Pizza"
 import ARROWDOWN from "../../assets/images/arrow-down.ico"
+import CardSelf from '../CardSelf/CardSelf';
 
 
 export default function Home() {
@@ -42,57 +43,37 @@ export default function Home() {
 
       const min = Math.min(...resto2Pizzas.map(item => item.price )) ;
       const max = Math.max(...resto2Pizzas.map(item => item.price )) ;
-      // console.log(min);
-      // console.log(max);
-
       
       const [copyAsc, setcopyAsc] = useState([...restoPizzas]);
       const [copyDesc, setcopyDesc] = useState([...restoPizzas]);
       const [copyCreme, setcopycreme] = useState([...restoPizzas]);
-      
-      const [filteredPizzas, setfilteredPizzas] = useState([...restoPizzas])
+      const [copyTomate, setcopyTomate] = useState([...restoPizzas]);
+      const [filteredPizzas, setfilteredPizzas] = useState([...restoPizzas]);
       useEffect(() => {
         setcopyAsc(copyAsc.sort((a,b) => b.price - a.price));
         setcopyDesc(copyDesc.sort((a,b) => a.price - b.price));
         setcopycreme(copyCreme.filter(pizza => pizza.base.toLowerCase() == 'creme'));
+        setcopyTomate(copyTomate.filter(pizza => pizza.base.toLowerCase() == 'tomate'));
 
         switch (selectedOrder.trim()) {
           case 'croissant':
-            setfilteredPizzas(copyAsc);
-            break;
-          case 'decroissant':
             setfilteredPizzas(copyDesc);
             break;
-            case 'tomate':
-              setfilteredPizzas(filteredPizzas.filter(pizza => pizza.base.toLowerCase() == 'tomate'));
-              break;
-            case 'creme':
-              setfilteredPizzas(copyCreme);
-              break;
+          case 'decroissant':
+            setfilteredPizzas(copyAsc);
+            break;
+          case 'tomate':
+            setfilteredPizzas(copyTomate);
+            break;
+          case 'creme':
+            setfilteredPizzas(copyCreme);
+            break;
           case 'tout':
             setfilteredPizzas([...restoPizzas]);
             break;                 
         }
-
-        // setfilteredPizzas([...restoPizzas])
-
       },[selectedOrder]);
 
-      // const filteredFlags = originalFlags.filter(flag => flag.region.toLowerCase() === selectedRegion.toLowerCase());
-
-
-      // const filterByPrice = () => {
-      //   const sortedPizzas = pizzas.slice().sort((a, b) => {
-      //     if (price === 'ascending') {
-      //       return a.price - b.price;
-      //     } else if (price === 'descending') {
-      //       return b.price - a.price;
-      //     } else {
-      //       return 0;
-      //     }
-      //   });
-      //   setFilteredPizzas(sortedPizzas);
-      // };
 
   return (
     <>
@@ -162,7 +143,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="list_pizza_area w-full min-h-[57dvh] grid grid-cols-3 gap-16 ">
+          <div className="list_pizza_area w-full min-h-[57dvh] grid grid-cols-3 gap-16  ">
+            <CardSelf />
             {filteredPizzas.map((element, key) => {
               return <Card id={element.id} key={key} />;
             })}

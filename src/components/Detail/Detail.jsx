@@ -177,6 +177,14 @@ style={{backgroundImage:`url(${BGPIZZA})`}}
                     })
                 }
                  
+                 
+
+
+                 </div>
+                 <div className="price_area w-[20%] h-[15%] mx-auto ">
+                  <h3 className="text-[2.3rem] mx-auto">
+                    {pizzaId.price}€
+                  </h3>
                  </div>
                 <div
                   className={`near_countries_area   
