@@ -12,6 +12,7 @@ import { Provider } from "react-redux"
 import Home from './components/Home/Home.jsx';
 import Resto from './components/Resto.jsx';
 import Detail from './components/Detail/Detail.jsx';
+import BagPage from './components/BagPage/BagPage.jsx';
 
 const router = createBrowserRouter([
 
@@ -20,12 +21,14 @@ const router = createBrowserRouter([
     path: "/pizza-redux",
     element: <Home /> ,
   },
-  // {
-  //   element: <Resto />,
-  // },
+
   {
     path: "/pizza-redux/detail/:id",
     element: <Detail />,
+  },
+  {
+    path: "/pizza-redux/cart/",
+    element: <BagPage />,
   },
 ]);
 

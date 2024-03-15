@@ -14,8 +14,10 @@ export default function Navbar() {
   pizzaList.map((prices) => {total+= prices.price});
 // console.log(total);
 
+// console.log(pizzaList.slice(-2));
 
-  // console.log(pizzaList.length);
+
+  // console.log(pizzaList);
 
   const [isBagHovered, setIsBagHovered] = useState(false);
 // console.log(document.querySelector('.navbar').querySelector(".bag_pizza"));
@@ -101,6 +103,10 @@ export default function Navbar() {
               </div>
             </div>
             <div className="mid">
+              <Link
+
+              to={`/pizza-redux/cart/`}
+              >
               <img
                 src={CARTLOGO}
                 className="flex rounded-full cursor-pointer"
@@ -109,7 +115,10 @@ export default function Navbar() {
                 alt=""
                 onMouseEnter={() => setIsBagHovered(true)}
                 onMouseLeave={() => setIsBagHovered(false)}
+                onClick={``}
+                
               />
+              </Link>
             </div>
 
             <div
@@ -150,7 +159,7 @@ export default function Navbar() {
 
             {
 
-              pizzaList.map((element ) => {
+              pizzaList.slice(-2).map((element ) => {
                 const srcPizz = new URL(`${element.image}`, import.meta.url).href;
                 
                 return (
@@ -202,7 +211,7 @@ export default function Navbar() {
 
             <div className="price_area mx-auto">
 
-              <span  >Prix Total : {total} € </span>
+              <span  >Prix Total : {total.toFixed(2)} € </span>
             </div>
 
  

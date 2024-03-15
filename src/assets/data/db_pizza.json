@@ -3,6 +3,7 @@
       "id": 1,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Vesuvius.png",
+      "base": "creme",
       "name": "Vesuvius",
       "topping": [
         "tomate",
@@ -21,6 +22,7 @@
       "id": 2,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Hawaii.png",
+      "base": "tomate",
       "name": "Hawaii",
       "topping": [
         "tomate",
@@ -35,6 +37,7 @@
       "id": 3,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Printaniere.png",
+      "base": "creme",
       "name": "Printaniere",
       "topping": [
         "tomate",
@@ -51,6 +54,7 @@
       "id": 4,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Reggina.png",
+      "base": "creme",
       "name": "Reggina",
       "topping": [
         "crême",
@@ -66,6 +70,7 @@
       "id": 5,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Royal-Mix.png",
+      "base": "tomate",
       "name": "Royal Mix",
       "topping": [
         "crême",
@@ -84,6 +89,7 @@
       "id": 6,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Pepperoni-Spicy.png",
+      "base": "tomate",
       "name": "Pepperoni Spicy",
       "topping": [
         "crême",
@@ -98,6 +104,7 @@
       "id": 7,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Margherita-Tomate.png",
+      "base": "tomate",
       "name": "Margherita Tomate",
       "topping": [
         "sauce tomate",
@@ -112,6 +119,7 @@
       "id": 8,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Automniere.png",
+      "base": "creme",
       "name": "Automnière",
       "topping": [
         "tomate",
@@ -128,6 +136,7 @@
       "id": 9,
       "category": "Pizza",
       "image": "../../assets/images/pizza-Carnivore.png",
+      "base": "tomate",
       "name": "Carnivore",
       "topping": [
         "Sauce tomate", 
