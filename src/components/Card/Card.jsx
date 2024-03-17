@@ -18,6 +18,19 @@ export default function Card({ id }) {
     
     // console.log(pizza);
     // let qty = 0;
+
+
+    const handleAddToList = () => {
+
+        let singlePizza = {...pizza};
+        // singlePizza.qty = 1;
+
+        // const objet2 = { ...objet1, c: 3 };
+
+        console.table(singlePizza);
+
+        dispatch(addPizza(singlePizza));
+      };
     const handleAddToCart = () => {
         dispatch(addToCart({ pizzaId: pizza.id, qty: 1 }));
       };
@@ -113,7 +126,7 @@ export default function Card({ id }) {
             <button type='button' className={`name_price_area flex rounded-3xl btn   
                             w-[65%] h-[10%]  bg-[#eaeaea] m-auto 
             `}
-            onClick={() => {dispatch(addPizza(pizza)), handleAddToCart()}}
+            onClick={() => {handleAddToList(), handleAddToCart()}}
             >
                     ADD TO BAG
             </button>

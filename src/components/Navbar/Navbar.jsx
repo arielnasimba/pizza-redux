@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import LOGO from "../../assets/images/logo-pizza.png"
 import CARTLOGO from "../../assets/images/cart-logo-pizza.png"
+import BGCARD from "../../assets/images/vegetables.jpg"
+
 import '../Navbar/Navbar.css'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,40 +14,14 @@ export default function Navbar() {
   const pizzaList = useSelector((state) => state.pizza.pizzas);
   let total = 0;
   pizzaList.map((prices) => {total+= prices.price});
-// console.log(total);
-
-console.table(pizzaList);
-
-const allBag = useSelector((state) =>state.pizza.cart)
-  console.table(allBag);
 
 
 const qty_last_pizza = (lastName, arr) => {
   arr.find(({name}) => name == lastName)
 };
 
-// let lastPizza = qty_last_pizza(pizzaList[pizzaList.length-1].name, pizzaList);
-// console.log(lastPizza);
-
-// const lastPizza = pizzaList.find(({name}) => name == pizzaList[pizzaList.length-1].name);
-// console.table(lastPizza)
-// const beforeLastPizza = pizzaList.find(({name}) => name == pizzaList[pizzaList.length-2].name);
-// console.table(beforeLastPizza);
-
-// const found = array1.find((element) => element > 10);
-
   const [isBagHovered, setIsBagHovered] = useState(false);
-// console.log(document.querySelector('.navbar').querySelector(".bag_pizza"));
 
-const inventory = [
-  { name: "apples", quantity: 2 },
-  { name: "bananas", quantity: 0 },
-  { name: "cherries", quantity: 5 },
-];
-
-const result = inventory.find(({ name }) => name === "cherries");
-
-console.log(result); // { name: 'cherries', quantity: 5 }
 
   useEffect(() => {
     
@@ -189,18 +165,20 @@ console.log(result); // { name: 'cherries', quantity: 5 }
                 return (
 
                   <div className="SideBarItem w-full h-[5rem] bg-white flex rounded-2xl">
-                  <div className="left w-[25%]  h-full rounded-l-lg flex ">
+                  <div className="left w-[40%]  h-full rounded-l-lg flex bg-no-repeat bg-cover rounded-r-xl "
+                  style={{backgroundImage:`url(${BGCARD})`}}
+                  >
                     {/* image content */}
     
                     <img
                       src={srcPizz}
                       alt=""
                       srcset=""
-                      className="m-auto"
+                      className="w-[75%] h-[75%] m-auto"
                     />
                   </div>
     
-                  <div className="middle w-[50%]  h-full flex flex-col justify-center items-center">
+                  <div className="middle w-[55%]  h-full flex flex-col justify-center items-center">
                     {/* text content */}
     
                     <p className="text-[0.8rem] text-black">
@@ -211,7 +189,7 @@ console.log(result); // { name: 'cherries', quantity: 5 }
                     </p>
                   </div>
     
-                  <div className="right w-[25%]  h-full rounded-r-lg flex flex-col justify-center items-center ">
+                  <div className="right w-[5%]  h-full rounded-r-lg flex flex-col justify-center items-center ">
                     {/* quantity content */}
     
 
