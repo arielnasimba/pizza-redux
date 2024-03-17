@@ -79,7 +79,7 @@ Error generating stack: `+i.message+`
         `,onMouseEnter:()=>l(!0),onMouseLeave:()=>l(!1),style:{backgroundColor:"rgba(34, 34, 34, 0.9)"},children:[p.jsx(Mt,{to:`/pizza-redux/detail/${n.name}`,className:`ingredients_area italic text-white font-medium justify-center 
                             w-[85%] h-[40%]  m-auto  bg-white rounded-3xl flex    bg-cover
                             
-                `,style:{backgroundImage:`url(${po})`},children:p.jsx("img",{src:i,alt:n.name,srcset:"",className:"w-[65%] h-[65%] m-auto"})}),p.jsx("div",{className:`description_area flex text-[rgb(66,194,224)]
+                `,style:{backgroundImage:`url(${po})`},children:p.jsx("img",{src:i,alt:n.name,srcset:n.name,className:"w-[65%] h-[65%] m-auto"})}),p.jsx("div",{className:`description_area flex text-[rgb(66,194,224)]
                             w-[85%] h-[16%]   mx-auto justify-between 
             `,children:p.jsx("p",{children:n.description})}),p.jsxs("div",{className:`name_price_area flex
                             w-[85%] h-[10%]   m-auto justify-between
