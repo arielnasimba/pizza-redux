@@ -167,7 +167,7 @@ min-[1440px]:items-center
                 <div
                   className={`title_area text-center flex items-center gap-7 
 
-  min-[1440px]: min-[1440px]: h-[10%]
+  min-[1440px]: min-[1440px]: h-[10%] w-full
 `}
                 >
                   <span>

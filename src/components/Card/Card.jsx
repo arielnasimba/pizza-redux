@@ -72,7 +72,7 @@ export default function Card({ id }) {
 
                 <img 
                 src={srcPizza} 
-                alt="" 
+                alt={pizza.name} 
                 srcset="" className={`w-[65%] h-[65%] m-auto`}/>
 
             </Link>
